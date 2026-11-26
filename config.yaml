@@ -1,9 +1,9 @@
 ---
-name: Thermostart
-version: 1.0.4
+name: Thermostart (airwinb)
+version: 1.1.0
 slug: thermostart
-description: Thermostart for Home Assistant
-url: https://github.com/wichers/thermostart
+description: Thermostart for Home Assistant, built from airwinb/thermostart
+url: https://github.com/airwinb/thermostart
 webui: http://[HOST]:[PORT:3888]
 ingress: true
 panel_icon: mdi:owl
@@ -25,9 +25,11 @@ options:
   autologin:
     username: ""
     password: ""
+  tomorrow_apikey: ""
 schema:
   log_level: list(trace|debug|info|notice|warning|error|fatal)?
   secret_key: str
   autologin:
     username: str
     password: str
+  tomorrow_apikey: str?

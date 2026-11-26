@@ -11,6 +11,7 @@ export DATABASE_URL=sqlite:////config/thermostart/thermostart.db
 export APP_FOLDER=/opt/services/web
 export APPLICATION_ROOT=$(bashio::addon.ingress_entry)
 export SCRIPT_NAME=$(bashio::addon.ingress_entry)
+export TS_SERVER_VERSION="2.0.1-rc1"
 
 if bashio::config.has_value 'secret_key'; then
     export SECRET_KEY="$(bashio::config 'secret_key')"
@@ -22,6 +23,11 @@ fi
 
 if bashio::config.has_value 'autologin.password'; then
     export AUTOLOGIN_PASSWORD="$(bashio::config 'autologin.password')"
+fi
+
+# airwinb/thermostart skips the outside temperature when no key is set
+if bashio::config.has_value 'tomorrow_apikey'; then
+    export TOMORROW_APIKEY="$(bashio::config 'tomorrow_apikey')"
 fi
 
 cd /opt/services/web
