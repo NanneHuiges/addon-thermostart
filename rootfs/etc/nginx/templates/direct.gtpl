@@ -16,4 +16,12 @@ server {
         proxy_pass http://backend{{ .entry }}/fw/hcu;
     }
 
+    # Read-only JSON API for Home Assistant sensors; changes go through the panel
+    location /thermostat/ {
+        limit_except GET {
+            deny all;
+        }
+        proxy_pass http://backend{{ .entry }}/thermostat/;
+    }
+
 }

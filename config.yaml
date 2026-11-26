@@ -1,6 +1,6 @@
 ---
 name: Thermostart (airwinb)
-version: 1.1.0
+version: 1.1.1
 slug: thermostart
 description: Thermostart for Home Assistant, built from airwinb/thermostart
 url: https://github.com/airwinb/thermostart
